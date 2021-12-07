@@ -1,0 +1,3 @@
+- Finish README.md
+- load code into loreal git repo
+- create log analytics

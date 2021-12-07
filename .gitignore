@@ -1,0 +1,6 @@
+# generated files
+prepare.sh
+
+# Terraform
+terraform/.terraform*
+terraform/*.tfstate*
