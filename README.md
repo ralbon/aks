@@ -30,8 +30,8 @@ Create infrastructure
 ```
 $ cd terraform
 $ terraform init
-$ terraform plan -var-files variables.tfvars
-$ terraform apply -var-files variables.tfvars
+$ terraform plan -var-files loreal.tfvars
+$ terraform apply -var-files loreal.tfvars
 ```
 
 # Connect to AKS

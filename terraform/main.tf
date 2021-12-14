@@ -13,6 +13,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     vnet_subnet_id       = azurerm_subnet.subnet.id
     type                 = "VirtualMachineScaleSets"
     orchestrator_version = var.aks_kubernetes_version
+    enable_auto_scaling  = "true"
   }
 
   identity {
@@ -25,9 +26,12 @@ resource "azurerm_kubernetes_cluster" "k8s" {
       hours = ["11","12","13","14"]     
     }
   }
-
-
-# addon_profile {}}
+  
+  addon_profile {
+    oms_agent {
+      enabled = "true"
+    }  
+  }
 
   network_profile {
     load_balancer_sku = "standard"
@@ -40,11 +44,6 @@ resource "azurerm_kubernetes_cluster" "k8s" {
 
   role_based_access_control {
     enabled = var.aks_kubernetes_cluster_rbac_enabled
-
-  #  azure_active_directory {
-  #    managed                = true
-  #    admin_group_object_ids = [var.aks_admins_group_object_id]
-  # }
   }
 
   tags = local.tags
