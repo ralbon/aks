@@ -52,6 +52,7 @@ variable "aks_agent_vm_size" {
 
 variable "ssh_public_key" {
   description = "The public key allowed for admin username access"
+  default     = ""
   type        = string
 }
 
@@ -59,4 +60,9 @@ variable "aks_kubernetes_cluster_rbac_enabled" {
   description = "Enable using rabs in Kubernetes"
   default = "true"
   type        = bool
+}
+
+variable "bastion_password" {
+  description = "Password to connect to bastion as admin"
+  type        = string
 }

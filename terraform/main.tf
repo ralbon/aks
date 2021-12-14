@@ -6,14 +6,6 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   kubernetes_version  = var.aks_kubernetes_version
   private_cluster_enabled = true
 
-  linux_profile {
-    admin_username = "ubuntu"
-
-    ssh_key {
-      key_data = var.ssh_public_key
-    }
-  }
-
   default_node_pool {
     name                 = "agentpool"
     node_count           = var.aks_agent_count
@@ -26,6 +18,14 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   identity {
     type = "SystemAssigned"
   }
+  
+  maintenance_window {
+    allowed {
+      day= "Tuesday"
+      hours = ["11","12","13","14"]     
+    }
+  }
+
 
 # addon_profile {}}
 
