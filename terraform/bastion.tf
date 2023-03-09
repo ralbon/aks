@@ -41,7 +41,7 @@ resource "azurerm_virtual_machine" "bastion" {
   }
   os_profile {
     computer_name  = "hostname"
-    admin_username = "loreal"
+    admin_username = "admin"
     admin_password = var.bastion_password
     custom_data    = file("../bastion-user-data.sh")
   }

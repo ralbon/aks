@@ -1,13 +1,13 @@
-# Terraform AKS Loreal
+# AKS
 
-This project allows you to manage creation, modification or destruction of AKS Cluster in Azure using Terraform.
+This project allows you to deploy an AKS Cluster in Azure using Terraform.
 
 # Prerequisites
 
 ## Tools: 
 - terraform
 
-## Resources: 
+## Resources:
 - Azure Subscription
 - Azure Resource group
 - Azure Service Principal with Owner scope in resource group 
@@ -30,8 +30,8 @@ Create infrastructure
 ```
 $ cd terraform
 $ terraform init
-$ terraform plan -var-files loreal.tfvars
-$ terraform apply -var-files loreal.tfvars
+$ terraform plan -var-files dev.tfvars
+$ terraform apply -var-files dev.tfvars
 ```
 
 # Connect to AKS
@@ -40,7 +40,7 @@ Go to azure poartal and select bastion vm -> Connect -> via Bastion host. Enter 
 Once you are connected to bastion. 
 ```
 $ az login
-$ az account set --subscription 93f7670e-adf8-489e-99af-225c8c725860
-$ az aks get-credentials --resource-group we-frri-rg-dev-devops --name infra-dev
+$ az account set --subscription XXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+$ az aks get-credentials --resource-group rg-aks --name infra-dev
 ```
 
